@@ -1,0 +1,22 @@
+<h2>FORM ONE - <code>ControlValueAccessor</code></h2>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <label for="Form one - field 1">Main - field 1</label>
+        <input type="text" formControlName="fieldOne" class="" />
+        <app-control-status [control]="formGroup.controls.fieldOne"></app-control-status>
+    </div>
+
+    value={{formGroup.controls.fieldOne.value}}, isGreaterThan2={{isGreaterThan2}}
+    <ng-container *ngIf="isGreaterThan2">
+        <div class="row">
+            <app-child-one formControlName="childOne" [submitted]="submitted"></app-child-one>
+        </div>
+    </ng-container>
+
+    <p>
+        {{formStatus}}
+    </p>
+
+    <button type="submit">Submit</button>
+</form>

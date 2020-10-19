@@ -1,0 +1,9 @@
+<p>child-one-child works!</p>
+
+<ng-container [formGroup]="formGroup">
+    <div class="row">
+        <label for="Child 1 child - field 1">Child 1 child - field 1</label>
+        <input type="text" formControlName="field" class="" />
+        <app-control-status [control]="formGroup.controls.field"></app-control-status>
+    </div>
+</ng-container>
