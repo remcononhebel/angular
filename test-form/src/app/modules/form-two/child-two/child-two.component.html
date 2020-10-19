@@ -1,0 +1,12 @@
+<p>child-two works!</p>
+
+<ng-container [formGroup]="formGroup">
+    <div class="row">
+        <label for="Child 2 - field 1">Child 1 - field 1</label>
+        <input type="text" formControlName="childTwoField" class="" />
+        <app-control-status [control]="formGroup.controls.childTwoField"></app-control-status>
+    </div>
+    <div class="row">
+        <app-child-two-child [formGroup]="formGroup.controls.childTwoChild"></app-child-two-child>
+    </div>
+</ng-container>
