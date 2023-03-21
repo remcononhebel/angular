@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-import { booksReducer } from './state/books.reducer';
-import { collectionReducer } from './state/collection.reducer';
+import { booksReducer } from './state/books/books.reducer';
+import { collectionReducer } from './state/collection/collection.reducer';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';

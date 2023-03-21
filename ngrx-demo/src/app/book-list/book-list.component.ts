@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Book } from './books.model';
+import { Book } from '../model/book.model';
 
 @Component({
   selector: 'app-book-list',
@@ -7,6 +7,6 @@ import { Book } from './books.model';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent {
-  @Input() books: ReadonlyArray<Book> = [];
+  @Input() books: Book[] = [];
   @Output() add = new EventEmitter<string>();
 }

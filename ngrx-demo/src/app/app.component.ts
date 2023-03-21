@@ -1,32 +1,34 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { selectBookCollection, selectBooks } from './state/books.selectors';
-import { BooksActions, BooksApiActions } from './state/books.actions';
-import { GoogleBooksService } from './book-list/books.service';
+import { Book } from './model/book.model';
+import { BooksApiService } from './service/books-api.service';
+import { BooksApiActions } from './state/books/books.actions';
+import { selectAvailableBooks, selectBookCollection } from './state/books/books.selectors';
+import { CollectionActions } from './state/collection/collection.actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  books$ = this.store.select(selectBooks);
+  books$ = this.store.select(selectAvailableBooks);
   bookCollection$ = this.store.select(selectBookCollection);
 
   onAdd(bookId: string) {
-    this.store.dispatch(BooksActions.addBook({ bookId }));
+    this.store.dispatch(CollectionActions.addBook({ bookId }));
   }
 
   onRemove(bookId: string) {
-    this.store.dispatch(BooksActions.removeBook({ bookId }));
+    this.store.dispatch(CollectionActions.removeBook({ bookId }));
   }
 
-  constructor(private booksService: GoogleBooksService, private store: Store) {}
+  constructor(private booksService: BooksApiService, private store: Store) {}
 
   ngOnInit() {
     this.booksService
       .getBooks()
-      .subscribe((books) =>
+      .subscribe((books: Book[]) =>
         this.store.dispatch(BooksApiActions.retrievedBookList({ books }))
       );
   }
