@@ -1,23 +1,17 @@
-import { createReducer } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
+import { BooksApiActions } from './books.actions';
 import { BooksState } from './books.state';
 
 export const initialState: BooksState = {
-  books: [
-    {
-      id: '1',
-      volumeInfo: {
-        authors: ['Author 1', 'Co-author 1'],
-        title: 'Book 1',
-      },
-    },
-    {
-      id: '2',
-      volumeInfo: {
-        authors: ['Author 2', 'Co-author 2'],
-        title: 'Book 2',
-      },
-    },
-  ],
+  books: [],
 };
 
-export const booksReducer = createReducer(initialState);
+export const booksReducer = createReducer(
+  initialState,
+  on(BooksApiActions.retrievedBookList, (state, { books }) => {
+    return {
+      ...state,
+      books,
+    };
+  })
+);

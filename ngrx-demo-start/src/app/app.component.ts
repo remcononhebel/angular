@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from './model/book.model';
+import { BooksApiService } from './service/books-api.service';
+import { BooksApiActions } from './state/books/books.actions';
 import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/books/books.selectors';
 
 @Component({
@@ -9,16 +11,20 @@ import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/book
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ngrx-demo-start';
   books$: Observable<Book[]>;
   numberOfAvailableBooks$: Observable<number>;
 
-  constructor(
-    private readonly store: Store
-  ) {
+  constructor(private readonly store: Store, private readonly booksApiService: BooksApiService) {
     this.books$ = this.store.select(selectAvailableBooks);
     this.numberOfAvailableBooks$ = this.store.select(selectNumberOfAvailableBooks);
+  }
+
+  ngOnInit(): void {
+    this.booksApiService.getBooks().subscribe((books: Book[]) => {
+      this.store.dispatch(BooksApiActions.retrievedBookList({ books }));
+    });
   }
 
   onAdd(id: string) {
