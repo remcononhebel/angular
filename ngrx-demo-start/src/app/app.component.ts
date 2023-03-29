@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { Book } from './model/book.model';
 import { BooksApiService } from './service/books-api.service';
 import { BooksApiActions } from './state/books/books.actions';
 import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/books/books.selectors';
+import { CollectionActions } from './state/collection/collection.actions';
+import { selectBookCollection, selectNumberOfBooksInCollection } from './state/collection/collection.selectors';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +14,12 @@ import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/book
 })
 export class AppComponent implements OnInit {
   title = 'ngrx-demo-start';
-  books$: Observable<Book[]>;
-  numberOfAvailableBooks$: Observable<number>;
+  books$ = this.store.select(selectAvailableBooks);
+  numberOfAvailableBooks$ = this.store.select(selectNumberOfAvailableBooks);
+  bookCollection$ = this.store.select(selectBookCollection);
+  numberOfBooksInCollections$ = this.store.select(selectNumberOfBooksInCollection);
 
-  constructor(private readonly store: Store, private readonly booksApiService: BooksApiService) {
-    this.books$ = this.store.select(selectAvailableBooks);
-    this.numberOfAvailableBooks$ = this.store.select(selectNumberOfAvailableBooks);
-  }
+  constructor(private readonly store: Store, private readonly booksApiService: BooksApiService) {}
 
   ngOnInit(): void {
     this.booksApiService.getBooks().subscribe((books: Book[]) => {
@@ -28,6 +28,10 @@ export class AppComponent implements OnInit {
   }
 
   onAdd(id: string) {
-    alert(`TODO: boek met id ${id} toevoegen aan collection`);
+    this.store.dispatch(CollectionActions.addBook({ bookId: id }));
+  }
+
+  onRemove(bookId: string) {
+    this.store.dispatch(CollectionActions.removeBook({ bookId }));
   }
 }

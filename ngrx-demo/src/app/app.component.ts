@@ -18,14 +18,6 @@ export class AppComponent {
   bookCollection$ = this.store.select(selectBookCollection);
   numberOfBooksInCollections$ = this.store.select(selectNumberOfBooksInCollection);
 
-  onAdd(bookId: string) {
-    this.store.dispatch(CollectionActions.addBook({ bookId }));
-  }
-
-  onRemove(bookId: string) {
-    this.store.dispatch(CollectionActions.removeBook({ bookId }));
-  }
-
   constructor(private booksService: BooksApiService, private store: Store) {}
 
   ngOnInit() {
@@ -34,5 +26,13 @@ export class AppComponent {
       .subscribe((books: Book[]) =>
         this.store.dispatch(BooksApiActions.retrievedBookList({ books }))
       );
+  }
+
+  onAdd(bookId: string) {
+    this.store.dispatch(CollectionActions.addBook({ bookId }));
+  }
+
+  onRemove(bookId: string) {
+    this.store.dispatch(CollectionActions.removeBook({ bookId }));
   }
 }
