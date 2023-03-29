@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Book } from 'src/app/model/book.model';
+import { Book } from '../../model/book.model';
 import { selectBooksState, selectNumberOfAvailableBooks } from '../books/books.selectors';
 import { CollectionState } from './collection.state';
 
