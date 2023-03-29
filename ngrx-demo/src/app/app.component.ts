@@ -4,8 +4,9 @@ import { Store } from '@ngrx/store';
 import { Book } from './model/book.model';
 import { BooksApiService } from './service/books-api.service';
 import { BooksApiActions } from './state/books/books.actions';
-import { selectAvailableBooks, selectBookCollection } from './state/books/books.selectors';
+import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/books/books.selectors';
 import { CollectionActions } from './state/collection/collection.actions';
+import { selectBookCollection, selectNumberOfBooksInCollection } from './state/collection/collection.selectors';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ import { CollectionActions } from './state/collection/collection.actions';
 })
 export class AppComponent {
   books$ = this.store.select(selectAvailableBooks);
+  numberOfAvailableBooks$ = this.store.select(selectNumberOfAvailableBooks);
   bookCollection$ = this.store.select(selectBookCollection);
+  numberOfBooksInCollections$ = this.store.select(selectNumberOfBooksInCollection);
 
   onAdd(bookId: string) {
     this.store.dispatch(CollectionActions.addBook({ bookId }));
