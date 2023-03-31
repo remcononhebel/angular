@@ -1,0 +1,8 @@
+.app {
+  display: flex;
+  flex-direction: row;
+
+  &__available-books {
+    width: 400px;
+  }
+}
