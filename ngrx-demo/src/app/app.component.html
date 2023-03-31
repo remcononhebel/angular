@@ -1,6 +1,20 @@
-<h2>Available books ({{ numberOfAvailableBooks$ | async}})</h2>
-<app-book-list class="book-list" [books]="(books$ | async)!" (add)="onAdd($event)"></app-book-list>
+<div class="app">
+  <div class="app__available-books">
+    <h1>Available books</h1>
+    <app-book-list
+      class="book-list"
+      [books]="(books$ | async)!"
+      (add)="onAdd($event)"
+    ></app-book-list>
+  </div>
 
-<h2>My Collection ({{numberOfBooksInCollections$ | async}})</h2>
-<app-book-collection class="book-collection" [books]="(bookCollection$ | async)!" (remove)="onRemove($event)">
-</app-book-collection>
+  <div class="app__my-collection">
+    <h1>My Collection</h1>
+    <app-book-collection
+      class="book-collection"
+      [books]="(bookCollection$ | async)!"
+      (remove)="onRemove($event)"
+    >
+    </app-book-collection>
+  </div>
+</div>
