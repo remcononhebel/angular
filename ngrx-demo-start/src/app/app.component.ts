@@ -14,9 +14,7 @@ export class AppComponent {
   books$: Observable<Book[]>;
   numberOfAvailableBooks$: Observable<number>;
 
-  constructor(
-    private readonly store: Store
-  ) {
+  constructor(private readonly store: Store) {
     this.books$ = this.store.select(selectAvailableBooks);
     this.numberOfAvailableBooks$ = this.store.select(selectNumberOfAvailableBooks);
   }

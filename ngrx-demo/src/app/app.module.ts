@@ -18,7 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HttpClientModule,
     StoreDevtoolsModule.instrument()
   ],
-  declarations: [AppComponent, BookListComponent, BookCollectionComponent],
+  declarations: [AppComponent, BookCollectionComponent, BookListComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
