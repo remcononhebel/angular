@@ -11,6 +11,7 @@ import { selectBookCollection, selectNumberOfBooksInCollection } from './state/c
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   books$ = this.store.select(selectAvailableBooks);
