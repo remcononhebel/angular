@@ -10,6 +10,7 @@ import { CollectionActions } from './state/collection/collection.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   books$ = this.store.select(selectAvailableBooks);
