@@ -6,6 +6,7 @@ export const CollectionActions = createActionGroup({
   events: {
     'Add Book': props<{ bookId: string }>(),
     'Remove Book': props<{ bookId: string }>(),
+    'Select books': props<{ bookIds: string[] }>()
   },
 });
 

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CollectionSelectors selectBookCollection should return empty array when no books are selected 1`] = `[]`;
+
+exports[`CollectionSelectors selectBookCollection should return one book when one book is selected 1`] = `
+[
+  {
+    "id": "mock id 1",
+    "volumeInfo": {
+      "authors": [
+        "mock authors 1",
+      ],
+      "title": "mock title 1",
+    },
+  },
+]
+`;
+
+exports[`CollectionSelectors selectBookCollection should return one book when one book is selected 2`] = `
+[
+  {
+    "id": "mock id 1",
+    "volumeInfo": {
+      "authors": [
+        "mock authors 1",
+      ],
+      "title": "mock title 1",
+    },
+  },
+  {
+    "id": "mock id 2",
+    "volumeInfo": {
+      "authors": [
+        "mock authors 2",
+      ],
+      "title": "mock title 2",
+    },
+  },
+]
+`;
+
+exports[`CollectionSelectors selectNumberOfBooksInCollection should say that all books are selected 1`] = `"All available books selected"`;
+
+exports[`CollectionSelectors selectNumberOfBooksInCollection should say that there are no books in the collection if the collection is empty 1`] = `"No books selected"`;
+
+exports[`CollectionSelectors selectNumberOfBooksInCollection should say that there is one out of three books in the collection 1`] = `"1 / 2 books selected"`;

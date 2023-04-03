@@ -4,7 +4,7 @@ exports[`AppComponent should match snapshot 1`] = `
 <app-root
   bookCollection$={[Function Store]}
   books$={[Function Store]}
-  booksApiService={[Function BooksApiService]}
+  booksApiService={[Function BooksApiServiceJestMock]}
   numberOfAvailableBooks$={[Function Store]}
   numberOfBooksInCollections$={[Function Store]}
   store={[Function MockStore]}
@@ -18,6 +18,43 @@ exports[`AppComponent should match snapshot 1`] = `
     >
       <h1>
         Available books (0)
+      </h1>
+      <app-book-list
+        class="book-list"
+      />
+    </div>
+    <div
+      class="app__my-collection"
+    >
+      <h1>
+        My Collection (No books selected)
+      </h1>
+      <app-book-collection
+        class="book-collection"
+      />
+    </div>
+  </div>
+</app-root>
+`;
+
+exports[`AppComponent should match snapshot when selector returns books 1`] = `
+<app-root
+  bookCollection$={[Function Store]}
+  books$={[Function Store]}
+  booksApiService={[Function BooksApiServiceJestMock]}
+  numberOfAvailableBooks$={[Function Store]}
+  numberOfBooksInCollections$={[Function Store]}
+  store={[Function MockStore]}
+  title={[Function String]}
+>
+  <div
+    class="app"
+  >
+    <div
+      class="app__available-books"
+    >
+      <h1>
+        Available books (2)
       </h1>
       <app-book-list
         class="book-list"

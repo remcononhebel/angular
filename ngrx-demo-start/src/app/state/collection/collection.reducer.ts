@@ -19,6 +19,11 @@ export const collectionReducer = createReducer(
     };
   }),
   on(CollectionActions.removeBook, (state, { bookId }) => ({
+    ...state,
     selectedBooks: state.selectedBooks.filter((id) => id !== bookId),
   })),
+  on(CollectionActions.selectBooks, (state, { bookIds }) => ({
+    ...state,
+    selectedBooks: [...bookIds],
+  }))
 );

@@ -36,4 +36,13 @@ export class AppComponent implements OnInit {
   onRemove(bookId: string) {
     this.store.dispatch(CollectionActions.removeBook({ bookId }));
   }
+
+  selectAll() {
+    this.store.select(selectAvailableBooks).subscribe(books => {
+      if (books.length > 0) {
+        const bookIds = books.map(({id}) => id);
+        this.store.dispatch(CollectionActions.selectBooks({bookIds}))
+      }
+    })
+  }
 }
