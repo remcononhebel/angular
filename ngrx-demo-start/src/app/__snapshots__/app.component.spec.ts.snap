@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should match snapshot 1`] = `
+<app-root
+  books={[Function Array]}
+  booksService={[Function BooksApiService]}
+  title={[Function String]}
+>
+  <div
+    class="app"
+  >
+    <div
+      class="app__available-books"
+    >
+      <h1>
+        Available books
+      </h1>
+      <app-book-list
+        class="book-list"
+      />
+    </div>
+  </div>
+</app-root>
+`;
