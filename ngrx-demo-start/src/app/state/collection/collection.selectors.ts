@@ -6,7 +6,7 @@ import { CollectionState } from './collection.state';
 export const selectCollectionState = createFeatureSelector<CollectionState>('collection');
 
 export const selectBookCollection = createSelector(selectBooksState, selectCollectionState, (booksState, collectionState) => {
-  return collectionState.books.map((id) => booksState.books.find((book) => book.id === id)!);
+  return collectionState.selectedBooks.map((id) => booksState.books.find((book) => book.id === id)!);
 });
 
 export const selectNumberOfBooksInCollection = createSelector(

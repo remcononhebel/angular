@@ -1,4 +1,4 @@
 
 export interface CollectionState {
-  books: string[];
+  selectedBooks: string[];
 }

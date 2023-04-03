@@ -14,8 +14,10 @@ import { selectBookCollection, selectNumberOfBooksInCollection } from './state/c
 })
 export class AppComponent implements OnInit {
   title = 'ngrx-demo-start';
+
   books$ = this.store.select(selectAvailableBooks);
   numberOfAvailableBooks$ = this.store.select(selectNumberOfAvailableBooks);
+
   bookCollection$ = this.store.select(selectBookCollection);
   numberOfBooksInCollections$ = this.store.select(selectNumberOfBooksInCollection);
 
@@ -27,8 +29,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onAdd(id: string) {
-    this.store.dispatch(CollectionActions.addBook({ bookId: id }));
+  onAdd(bookId: string) {
+    this.store.dispatch(CollectionActions.addBook({ bookId }));
   }
 
   onRemove(bookId: string) {

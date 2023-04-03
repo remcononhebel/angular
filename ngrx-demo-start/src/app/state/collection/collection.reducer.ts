@@ -3,22 +3,22 @@ import { CollectionState } from './collection.state';
 import { CollectionActions } from './collection.actions';
 
 export const initialState: CollectionState = {
-  books: [],
+  selectedBooks: [],
 };
 
 export const collectionReducer = createReducer(
   initialState,
-  on(CollectionActions.removeBook, (state, { bookId }) => ({
-    books: state.books.filter((id) => id !== bookId),
-  })),
   on(CollectionActions.addBook, (state, { bookId }) => {
-    if (state.books.some((id) => id === bookId)) {
+    if (state.selectedBooks.some((id) => id === bookId)) {
       return state;
     }
 
     return {
       ...state,
-      books: [...state.books, bookId],
+      selectedBooks: [...state.selectedBooks, bookId],
     };
-  })
+  }),
+  on(CollectionActions.removeBook, (state, { bookId }) => ({
+    selectedBooks: state.selectedBooks.filter((id) => id !== bookId),
+  })),
 );
