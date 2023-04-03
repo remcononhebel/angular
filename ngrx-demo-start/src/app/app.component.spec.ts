@@ -5,6 +5,7 @@ import { ComponentFixture } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookListComponent } from './book-list/book-list.component';
 import { provideMockStore } from '@ngrx/store/testing';
+import { BookCollectionComponent } from './book-collection/book-collection.component';
 
 describe('AppComponent', () => {
   let spectator: Spectator<AppComponent>;
@@ -13,9 +14,9 @@ describe('AppComponent', () => {
 
   const createComponent = createComponentFactory({
     component: AppComponent,
-    declarations: [MockComponent(BookListComponent)],
+    declarations: [MockComponent(BookListComponent), MockComponent(BookCollectionComponent)],
     imports: [HttpClientTestingModule],
-    providers: [provideMockStore({ initialState: { books: { books: [] } } })],
+    providers: [provideMockStore({ initialState: { books: { books: [] }, collection: { selectedBooks: [] } } })],
   });
 
   beforeEach(() => {
