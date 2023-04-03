@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from './model/app-state.model';
 import { Book } from './model/book.model';
-import { BooksApiService } from './service/books-api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,12 @@ import { BooksApiService } from './service/books-api.service';
 })
 export class AppComponent {
   title = 'ngrx-demo-start';
-  books: Book[] = [];
+  books$: Observable<Book[]>;
+  numberOfAvailableBooks$: Observable<number>;
 
-  constructor(private readonly booksService: BooksApiService) {
-    this.booksService.getBooks().subscribe((books: Book[]) => {
-      this.books = [...books];
-    });
+  constructor(private readonly store: Store<AppState>) {
+    this.books$ = this.store.select((state: AppState) => state.books.books);
+    this.numberOfAvailableBooks$ = this.store.select((state: AppState) => state.books.books.length);
   }
 
   onAdd(id: string) {
