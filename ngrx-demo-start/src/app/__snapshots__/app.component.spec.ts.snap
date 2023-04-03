@@ -3,6 +3,7 @@
 exports[`AppComponent should match snapshot 1`] = `
 <app-root
   books$={[Function Store]}
+  booksApiService={[Function BooksApiService]}
   numberOfAvailableBooks$={[Function Store]}
   store={[Function MockStore]}
   title={[Function String]}
