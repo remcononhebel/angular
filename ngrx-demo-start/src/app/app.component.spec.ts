@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookListComponent } from './book-list/book-list.component';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+
 describe('AppComponent', () => {
   let spectator: Spectator<AppComponent>;
   let component: AppComponent;

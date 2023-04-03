@@ -14,7 +14,7 @@ exports[`AppComponent should match snapshot 1`] = `
       class="app__available-books"
     >
       <h1>
-        Available books 0
+        Available books (0)
       </h1>
       <app-book-list
         class="book-list"
