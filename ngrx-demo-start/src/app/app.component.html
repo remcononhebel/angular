@@ -1,6 +1,6 @@
 <div class="app">
   <div class="app__available-books">
-    <h1>Available books ({{numberOfAvailableBooks$ | async}})</h1>
+    <h1>Available books {{ numberOfAvailableBooks$ | async }}</h1>
     <app-book-list
       class="book-list"
       [books]="(books$ | async)!"
