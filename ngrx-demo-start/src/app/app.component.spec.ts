@@ -1,31 +1,32 @@
-import { TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { AppComponent } from './app.component';
+import { ComponentFixture } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BookListComponent } from './book-list/book-list.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+  let spectator: Spectator<AppComponent>;
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    declarations: [MockComponent(BookListComponent)],
+    imports: [HttpClientTestingModule],
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    spectator = createComponent();
+    component = spectator.component;
+    fixture = spectator.fixture;
   });
 
-  it(`should have as title 'ngrx-demo-start'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngrx-demo-start');
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ngrx-demo-start app is running!');
+  it('should match snapshot', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });
