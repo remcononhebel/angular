@@ -22,6 +22,13 @@ exports[`AppComponent should match snapshot 1`] = `
       <app-book-list
         class="book-list"
       />
+      <div
+        class="app__action"
+      >
+        <button>
+           Add all to collection 
+        </button>
+      </div>
     </div>
     <div
       class="app__my-collection"
@@ -32,6 +39,13 @@ exports[`AppComponent should match snapshot 1`] = `
       <app-book-collection
         class="book-collection"
       />
+      <div
+        class="app__action"
+      >
+        <button>
+           Remove all from collection 
+        </button>
+      </div>
     </div>
   </div>
 </app-root>
@@ -59,6 +73,13 @@ exports[`AppComponent should match snapshot when selector returns books 1`] = `
       <app-book-list
         class="book-list"
       />
+      <div
+        class="app__action"
+      >
+        <button>
+           Add all to collection 
+        </button>
+      </div>
     </div>
     <div
       class="app__my-collection"
@@ -69,6 +90,13 @@ exports[`AppComponent should match snapshot when selector returns books 1`] = `
       <app-book-collection
         class="book-collection"
       />
+      <div
+        class="app__action"
+      >
+        <button>
+           Remove all from collection 
+        </button>
+      </div>
     </div>
   </div>
 </app-root>

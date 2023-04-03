@@ -16,6 +16,12 @@ exports[`collectionReducer addBook should not add a book when it is already in t
 }
 `;
 
+exports[`collectionReducer deselectAllBooks should deselect all books 1`] = `
+{
+  "selectedBooks": [],
+}
+`;
+
 exports[`collectionReducer removeBook should not remove a book that is not in the state 1`] = `
 {
   "selectedBooks": [

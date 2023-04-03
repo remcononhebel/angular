@@ -25,5 +25,9 @@ export const collectionReducer = createReducer(
   on(CollectionActions.selectBooks, (state, { bookIds }) => ({
     ...state,
     selectedBooks: [...bookIds],
+  })),
+  on(CollectionActions.deselectAllBooks, (state) => ({
+    ...state,
+    selectedBooks: []
   }))
 );

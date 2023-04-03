@@ -99,4 +99,14 @@ describe('AppComponent', () => {
       expect(spy).not.toHaveBeenCalled();
     });
   });
+
+  describe('removeAll', () => {
+    it('should dispatch the deselectAllBooks action', () => {
+      const spy = jest.spyOn(mockStore, 'dispatch');
+
+      component.deselectAll();
+
+      expect(spy).toHaveBeenCalledWith(CollectionActions.deselectAllBooks());
+    });
+  });
 });

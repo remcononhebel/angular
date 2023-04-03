@@ -45,4 +45,11 @@ describe('collectionReducer', () => {
       expect(collectionReducer(state, CollectionActions.selectBooks({bookIds: mockBooks.map(({id}) => id)}))).toMatchSnapshot();
     });
   });
+
+  describe('deselectAllBooks', () => {
+    it('should deselect all books', () => {
+      const state: CollectionState = { selectedBooks: [...mockBooks.map(({id}) => id)] };
+      expect(collectionReducer(state, CollectionActions.deselectAllBooks())).toMatchSnapshot();
+    });
+  });
 });

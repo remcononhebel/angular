@@ -38,11 +38,15 @@ export class AppComponent implements OnInit {
   }
 
   selectAll() {
-    this.store.select(selectAvailableBooks).subscribe(books => {
+    this.store.select(selectAvailableBooks).subscribe((books) => {
       if (books.length > 0) {
-        const bookIds = books.map(({id}) => id);
-        this.store.dispatch(CollectionActions.selectBooks({bookIds}))
+        const bookIds = books.map(({ id }) => id);
+        this.store.dispatch(CollectionActions.selectBooks({ bookIds }));
       }
-    })
+    });
+  }
+
+  deselectAll() {
+    this.store.dispatch(CollectionActions.deselectAllBooks());
   }
 }

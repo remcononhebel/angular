@@ -4,17 +4,27 @@
     <app-book-list
       class="book-list"
       [books]="(books$ | async)!"
-      (add)="onAdd($event)"
-    ></app-book-list>
+      (add)="onAdd($event)"></app-book-list>
+    <div class="app__action">
+      <button
+        (click)="selectAll()">
+        Add all to collection
+      </button>
+    </div>
   </div>
 
   <div class="app__my-collection">
-    <h1>My Collection ({{numberOfBooksInCollections$ | async}})</h1>
+    <h1>My Collection ({{ numberOfBooksInCollections$ | async }})</h1>
     <app-book-collection
       class="book-collection"
       [books]="(bookCollection$ | async)!"
-      (remove)="onRemove($event)"
-    >
+      (remove)="onRemove($event)">
     </app-book-collection>
+    <div class="app__action">
+      <button
+        (click)="deselectAll()">
+        Remove all from collection
+      </button>
+    </div>
   </div>
 </div>
