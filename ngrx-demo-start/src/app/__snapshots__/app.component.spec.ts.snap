@@ -2,8 +2,9 @@
 
 exports[`AppComponent should match snapshot 1`] = `
 <app-root
-  books={[Function Array]}
-  booksService={[Function BooksApiService]}
+  books$={[Function Store]}
+  numberOfAvailableBooks$={[Function Store]}
+  store={[Function MockStore]}
   title={[Function String]}
 >
   <div
@@ -13,7 +14,7 @@ exports[`AppComponent should match snapshot 1`] = `
       class="app__available-books"
     >
       <h1>
-        Available books
+        Available books 0
       </h1>
       <app-book-list
         class="book-list"
