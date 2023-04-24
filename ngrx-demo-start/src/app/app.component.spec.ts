@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { mockBooks } from './mocks/book.mocks';
-import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/books/books.selectors';
 import { BooksApiServiceJestMock } from './service/books-api.service.jest-mock';
+import { selectAvailableBooks } from './state/books/books.selectors';
 import { CollectionActions } from './state/collection/collection.actions';
 
 describe('AppComponent', () => {
@@ -70,38 +70,39 @@ describe('AppComponent', () => {
   });
 
   describe('selectAll', () => {
-    let spy: jest.SpyInstance;
+    let dispatchSpy: jest.SpyInstance;
 
     beforeEach(() => {
-      spy = jest.spyOn(mockStore, 'dispatch');
+      dispatchSpy = jest.spyOn(mockStore, 'dispatch');
 
       spectator.detectChanges();
     });
 
     afterEach(() => {
       mockStore.resetSelectors();
-      spy.mockReset();
+      dispatchSpy.mockReset();
     });
 
-    it('should log to console if there are books in the collection', () => {
+    it('should dispatch the CollectionActions.selectBooks action', () => {
       mockStore.overrideSelector(selectAvailableBooks, [...mockBooks]);
+      const allBookIds = mockBooks.map(({ id }) => id);
 
       component.selectAll();
 
-      expect(spy).toHaveBeenCalled();
+      expect(dispatchSpy).toHaveBeenCalledWith(CollectionActions.selectBooks({ bookIds: allBookIds }));
     });
 
-    it('should not log to console if there are books in the collection', () => {
+    it('should not dispatch the CollectionActions.selectBooks action if there are no books availabel', () => {
       mockStore.overrideSelector(selectAvailableBooks, []);
 
       component.selectAll();
 
-      expect(spy).not.toHaveBeenCalled();
+      expect(dispatchSpy).not.toHaveBeenCalled();
     });
   });
 
   describe('removeAll', () => {
-    it('should dispatch the deselectAllBooks action', () => {
+    it('should dispatch the CollectionActionsdeselectAllBooks action', () => {
       const spy = jest.spyOn(mockStore, 'dispatch');
 
       component.deselectAll();

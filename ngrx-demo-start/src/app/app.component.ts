@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { first } from 'rxjs';
 import { Book } from './model/book.model';
 import { BooksApiService } from './service/books-api.service';
 import { BooksApiActions } from './state/books/books.actions';
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   selectAll() {
-    this.store.select(selectAvailableBooks).subscribe((books) => {
+    this.books$.pipe(first()).subscribe((books) => {
       if (books.length > 0) {
         const bookIds = books.map(({ id }) => id);
         this.store.dispatch(CollectionActions.selectBooks({ bookIds }));
