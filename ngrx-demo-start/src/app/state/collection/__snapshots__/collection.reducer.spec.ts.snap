@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collectionReducer addBook should add a book 1`] = `
+{
+  "selectedBooks": [
+    "mock book id",
+  ],
+}
+`;
+
+exports[`collectionReducer addBook should not add a book when it is already in the state 1`] = `
+{
+  "selectedBooks": [
+    "mock book id",
+  ],
+}
+`;
+
+exports[`collectionReducer deselectAllBooks should deselect all books 1`] = `
+{
+  "selectedBooks": [],
+}
+`;
+
+exports[`collectionReducer removeBook should not remove a book that is not in the state 1`] = `
+{
+  "selectedBooks": [
+    "mock book id",
+  ],
+}
+`;
+
+exports[`collectionReducer removeBook should remove a book that is in the state 1`] = `
+{
+  "selectedBooks": [],
+}
+`;
+
+exports[`collectionReducer selectBooks should select multiple books 1`] = `
+{
+  "selectedBooks": [
+    "mock id 1",
+    "mock id 2",
+  ],
+}
+`;

@@ -1,0 +1,20 @@
+.app {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+
+  &__available-books {
+    width: 400px;
+  }
+
+  &__my-collection {
+    width: 400px;
+    margin-left: 40px;
+  }
+
+  &__action {
+    margin-top: 16px;
+    display: flex;
+    justify-content: end;
+  }
+}
