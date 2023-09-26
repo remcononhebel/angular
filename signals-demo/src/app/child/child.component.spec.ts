@@ -1,21 +1,17 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { ChildComponent } from './child.component';
 
 describe('ChildComponent', () => {
-  let component: ChildComponent;
-  let fixture: ComponentFixture<ChildComponent>;
+  let spectator: Spectator<ChildComponent>;
+  const createComponent = createComponentFactory(ChildComponent);
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ChildComponent]
-    });
-    fixture = TestBed.createComponent(ChildComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  beforeEach(() => spectator = createComponent());
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should render labels and inputs', () => {
+    expect(spectator.fixture).toMatchSnapshot();
   });
 });
