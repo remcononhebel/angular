@@ -1,8 +1,11 @@
 import { Component, computed, effect, signal } from '@angular/core';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  standalone: true,
+  imports: [ChildComponent]
 })
 export class AppComponent {
   firstName = signal('Jane');

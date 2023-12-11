@@ -1,13 +1,13 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { MockComponent } from 'ng-mocks';
 import { AppComponent } from './app.component';
-import { ChildModule } from './child/child.module';
-import { MockModule } from 'ng-mocks';
+import { ChildComponent } from './child/child.component';
 
 describe('AppComponent', () => {
   let spectator: Spectator<AppComponent>;
   const createComponent = createComponentFactory({
     component: AppComponent,
-    imports: [MockModule(ChildModule)]
+    imports: [MockComponent(ChildComponent)]
   });
 
   beforeEach(() => (spectator = createComponent()));
