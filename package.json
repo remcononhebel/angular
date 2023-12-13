@@ -1,6 +1,6 @@
 {
   "name": "remco-nonhebel",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install && npm config set engine-strict=true"
