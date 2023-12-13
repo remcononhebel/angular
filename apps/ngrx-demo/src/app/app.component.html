@@ -4,12 +4,10 @@
     <ngrx-demo-book-list
       class="book-list"
       [books]="(books$ | async)!"
-      (add)="onAdd($event)"></ngrx-demo-book-list>
+      (add)="onAdd($event)"
+    ></ngrx-demo-book-list>
     <div class="app__action">
-      <button
-        (click)="selectAll()">
-        Add all to collection
-      </button>
+      <button (click)="selectAll()">Add all to collection</button>
     </div>
   </div>
 
@@ -18,13 +16,11 @@
     <ngrx-demo-book-collection
       class="book-collection"
       [books]="(bookCollection$ | async)!"
-      (remove)="onRemove($event)">
+      (remove)="onRemove($event)"
+    >
     </ngrx-demo-book-collection>
     <div class="app__action">
-      <button
-        (click)="deselectAll()">
-        Remove all from collection
-      </button>
+      <button (click)="deselectAll()">Remove all books from collection</button>
     </div>
   </div>
 </div>

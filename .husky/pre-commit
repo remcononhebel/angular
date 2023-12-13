@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Read the Node.js version from package.json
+package_node_version=$(node -e "console.log(require('./package.json').engines.node)")
+
+# Read the Node.js version from .nvmrc
+nvmrc_node_version=$(cat .nvmrc)
+
+# Compare the two versions
+if [ "$package_node_version" != "$nvmrc_node_version" ]; then
+  echo "Error: Node.js version in package.json ($package_node_version) does not match .nvmrc ($nvmrc_node_version)."
+  exit 1
+fi
+
+npx lint-staged
