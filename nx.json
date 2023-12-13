@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "defaultProject": "angular-monorepo",
+  "defaultProject": "testing-demo",
   "affected": {
     "defaultBase": "main"
   },
