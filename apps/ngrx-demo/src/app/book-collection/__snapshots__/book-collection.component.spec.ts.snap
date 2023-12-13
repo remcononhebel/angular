@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookCollectionComponent should match snapshot 1`] = `
+<ngrx-demo-book-collection
+  books={[Function Array]}
+  remove={[Function EventEmitter_]}
+>
+  <div
+    class="book-collection"
+  >
+  </div>
+</ngrx-demo-book-collection>
+`;

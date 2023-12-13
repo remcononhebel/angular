@@ -1,0 +1,26 @@
+<h2>Example component</h2>
+
+<div>
+  <button data-testid="button" (click)="getValue()">Get value</button>
+  <p *ngIf="serviceValue$ | async as value; else noValue" data-testid="result">
+    Result: {{ value }}
+  </p>
+  <ng-template #noValue>
+    <p>No value available</p>
+  </ng-template>
+</div>
+
+<div>
+  <button data-testid="fruit-button" (click)="selectRandomFruit()">
+    Select random fruit
+  </button>
+  <p
+    *ngIf="exampleService.selectedFruit$ | async as selectedFruit; else noFruit"
+    data-testid="selected-fruit"
+  >
+    Selected fruit: {{ selectedFruit }}
+  </p>
+  <ng-template #noFruit>
+    <p>No fruit selected</p>
+  </ng-template>
+</div>

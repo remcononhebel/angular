@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleMapper The way of snapshots should return a result with 1 and apple in the label 1`] = `
+{
+  "label": "1 * apple",
+}
+`;
+
+exports[`ExampleMapper The way of snapshots should return a result with 2 and pear in the label 1`] = `
+{
+  "label": "2 * pear",
+}
+`;
+
+exports[`ExampleMapper The way of snapshots should return a result with 3 and banana in the label 1`] = `
+{
+  "label": "3 * banana",
+}
+`;
