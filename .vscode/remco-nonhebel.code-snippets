@@ -1,0 +1,111 @@
+{
+  "rn-debug-pre": {
+    "scope": "html",
+    "prefix": "rn-debug-pre",
+    "body": [
+      "<pre [ngStyle]=\"{ backgroundColor: '#aaa', padding: '8px', border: '1px solid black' }\">",
+      "  $0",
+      "</pre>"
+    ],
+    "description": "Snipper for creating a <pre> HTML element, specifically helpful to display preformatted json"
+  },
+  "rn-spec-comp": {
+    "scope": "javascript,typescript,spec",
+    "prefix": "rn-spec-comp",
+    "body": [
+      "import { ComponentFixture } from '@angular/core/testing';",
+      "import { Spectator, createComponentFactory } from '@ngneat/spectator';",
+      "import { ${1:name}Component } from './${2:name}.component';",
+      "",
+      "describe('${1:name}Component', () => {",
+      "  let spectator: Spectator<${1:name}Component>;",
+      "  let component: ${1:name}Component;",
+      "  let fixture: ComponentFixture<${1:name}Component>;",
+      "",
+      "  const createComponent = createComponentFactory({",
+      "    component: ${1:name}Component,",
+      "  });",
+      "",
+      "  beforeEach(() => {",
+      "    spectator = createComponent();",
+      "    component = spectator.component;",
+      "    fixture = spectator.fixture;",
+      "  });",
+      "",
+      "  it('should create', () => {",
+      "    expect(component).toBeTruthy();",
+      "  });",
+      "",
+      "  it('should render <ADD MEANINGFUL AND VERIFIABLE INFORMATION ABOUT WHAT IS BEING RENDERED IN THE SNAPSHOT>', () => {",
+      "    expect(fixture).toMatchSnapshot();",
+      "  });",
+      "",
+      "  $0",
+      "});"
+    ],
+    "description": "Jest/spectator snippet for component unit tests"
+  },
+  "rn-spec-service": {
+    "scope": "javascript,typescript,spec",
+    "prefix": "rn-spec-service",
+    "body": [
+      "import { createServiceFactory, SpectatorService } from '@ngneat/spectator';",
+      "import { ${1:name}Service } from './${2:name}.service';",
+      "",
+      "describe('${1:name}Service', () => {",
+      "  let spectator: SpectatorService<${1:name}Service>;",
+      "  let service: ${1:name}Service;",
+      "",
+      "  const createService = createServiceFactory({",
+      "    service: ${1:name}Service,",
+      "  });",
+      "",
+      "  beforeEach(() => {",
+      "    spectator = createService();",
+      "    service = spectator.service;",
+      "  });",
+      "",
+      "  it('should create', () => {",
+      "    expect(service).toBeTruthy();",
+      "  });",
+      "",
+      "  $0",
+      "});"
+    ],
+    "description": "Jest/spectator snippet for service unit tests"
+  },
+  "rn-it-foreach": {
+    "scope": "javascript,typescript,spec",
+    "prefix": "rn-it-foreach",
+    "body": [
+      "[",
+      "  { title: '', expected: false },",
+      "  { title: '', expected: true },",
+      "].forEach(({ title }) => {",
+      "  it(`should \\${title\\}`, () => {",
+      "    $0",
+      "  });",
+      "});"
+    ],
+    "description": "Snippet for creating a unit tests with multiple test cases"
+  },
+  "rn-jest-mock": {
+    "scope": "typescript",
+    "prefix": "rn-jest-mock",
+    "body": [
+      "type ${1:name}Interface = Pick<${1:name}, keyof ${1:name}>;",
+      "",
+      "export class ${1:name}JestMock$0 implements ${1:name}Interface {",
+      "",
+      "  static inject(spectator: UnknownSpectator) {",
+      "    return spectator.inject(${1:name}) as ${1:name}Interface as ${1:name}JestMock;",
+      "  }",
+      "",
+      "  static provide(): Provider {",
+      "    return { provide: ${1:name}, useClass: ${1:name}JestMock };",
+      "  }",
+      "}"
+    ],
+    "description": "Snippet for creating a jest mock"
+  }
+}
