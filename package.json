@@ -2,8 +2,13 @@
   "name": "remco-nonhebel",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "prepare": "husky install && npm config set engine-strict=true"
+  },
   "private": true,
+  "engines": {
+    "node": "v20.10.0"
+  },
   "dependencies": {
     "@angular/animations": "~17.0.0",
     "@angular/common": "~17.0.0",
@@ -45,14 +50,17 @@
     "@types/node": "18.16.9",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
+    "commitizen": "^4.3.0",
     "cypress": "^13.0.0",
     "eslint": "~8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.13.4",
+    "husky": "^8.0.3",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~13.1.4",
     "jsonc-eslint-parser": "^2.1.0",
+    "lint-staged": "^15.2.0",
     "nx": "17.2.3",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
