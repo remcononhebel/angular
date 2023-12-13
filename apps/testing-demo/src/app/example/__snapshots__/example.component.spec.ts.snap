@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleComponent selectedFruit should not render a selected fruit by default (snapshot) 1`] = `
+<testing-demo-example
+  exampleService={[Function ExampleServiceJestMock]}
+  serviceValue$={[Function Subject]}
+>
+  <h2>
+    Example component
+  </h2><div>
+    <button
+      data-testid="button"
+    >
+      Get value
+    </button>
+    <p>
+      No value available
+    </p>
+  </div><div>
+    <button
+      data-testid="fruit-button"
+    >
+       Select random fruit 
+    </button>
+    <p>
+      No fruit selected
+    </p>
+  </div>
+</testing-demo-example>
+`;
+
+exports[`ExampleComponent selectedFruit should render a fruit when selectedFruit$ is emitted by the ExampleService (snapshot) 1`] = `
+<testing-demo-example
+  exampleService={[Function ExampleServiceJestMock]}
+  serviceValue$={[Function Subject]}
+>
+  <h2>
+    Example component
+  </h2><div>
+    <button
+      data-testid="button"
+    >
+      Get value
+    </button>
+    <p>
+      No value available
+    </p>
+  </div><div>
+    <button
+      data-testid="fruit-button"
+    >
+       Select random fruit 
+    </button>
+    <p
+      data-testid="selected-fruit"
+    >
+       Selected fruit: mock fruit 
+    </p>
+  </div>
+</testing-demo-example>
+`;

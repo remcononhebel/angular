@@ -1,0 +1,30 @@
+{
+  "name": "signals-demo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/signals-demo-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/signals-demo-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "signals-demo:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "signals-demo:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "signals-demo:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["signals-demo"]
+}

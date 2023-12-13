@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should match snapshot 1`] = `
+<ngrx-demo-root
+  bookCollection$={[Function _Store]}
+  books$={[Function _Store]}
+  booksApiService={[Function BooksApiServiceJestMock]}
+  numberOfAvailableBooks$={[Function _Store]}
+  numberOfBooksInCollections$={[Function _Store]}
+  store={[Function _MockStore]}
+  title={[Function String]}
+>
+  <div
+    class="app"
+  >
+    <div
+      class="app__available-books"
+    >
+      <h1>
+        Available books (0)
+      </h1>
+      <ngrx-demo-book-list
+        class="book-list"
+      />
+      <div
+        class="app__action"
+      >
+        <button>
+           Add all to collection 
+        </button>
+      </div>
+    </div>
+    <div
+      class="app__my-collection"
+    >
+      <h1>
+        My Collection (No books selected)
+      </h1>
+      <ngrx-demo-book-collection
+        class="book-collection"
+      />
+      <div
+        class="app__action"
+      >
+        <button>
+           Remove all from collection 
+        </button>
+      </div>
+    </div>
+  </div>
+</ngrx-demo-root>
+`;
+
+exports[`AppComponent should match snapshot when selector returns books 1`] = `
+<ngrx-demo-root
+  bookCollection$={[Function _Store]}
+  books$={[Function _Store]}
+  booksApiService={[Function BooksApiServiceJestMock]}
+  numberOfAvailableBooks$={[Function _Store]}
+  numberOfBooksInCollections$={[Function _Store]}
+  store={[Function _MockStore]}
+  title={[Function String]}
+>
+  <div
+    class="app"
+  >
+    <div
+      class="app__available-books"
+    >
+      <h1>
+        Available books (2)
+      </h1>
+      <ngrx-demo-book-list
+        class="book-list"
+      />
+      <div
+        class="app__action"
+      >
+        <button>
+           Add all to collection 
+        </button>
+      </div>
+    </div>
+    <div
+      class="app__my-collection"
+    >
+      <h1>
+        My Collection (No books selected)
+      </h1>
+      <ngrx-demo-book-collection
+        class="book-collection"
+      />
+      <div
+        class="app__action"
+      >
+        <button>
+           Remove all from collection 
+        </button>
+      </div>
+    </div>
+  </div>
+</ngrx-demo-root>
+`;

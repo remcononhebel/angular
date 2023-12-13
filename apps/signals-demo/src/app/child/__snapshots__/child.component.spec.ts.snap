@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChildComponent should render labels and inputs 1`] = `
+<signals-demo-child>
+  <p>
+    child works!
+  </p>
+</signals-demo-child>
+`;

@@ -1,0 +1,30 @@
+<div class="app">
+  <div class="app__available-books">
+    <h1>Available books ({{ numberOfAvailableBooks$ | async }})</h1>
+    <ngrx-demo-book-list
+      class="book-list"
+      [books]="(books$ | async)!"
+      (add)="onAdd($event)"></ngrx-demo-book-list>
+    <div class="app__action">
+      <button
+        (click)="selectAll()">
+        Add all to collection
+      </button>
+    </div>
+  </div>
+
+  <div class="app__my-collection">
+    <h1>My Collection ({{ numberOfBooksInCollections$ | async }})</h1>
+    <ngrx-demo-book-collection
+      class="book-collection"
+      [books]="(bookCollection$ | async)!"
+      (remove)="onRemove($event)">
+    </ngrx-demo-book-collection>
+    <div class="app__action">
+      <button
+        (click)="deselectAll()">
+        Remove all from collection
+      </button>
+    </div>
+  </div>
+</div>
