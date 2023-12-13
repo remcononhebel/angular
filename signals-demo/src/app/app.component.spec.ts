@@ -1,31 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { MockComponent } from 'ng-mocks';
 import { AppComponent } from './app.component';
+import { ChildComponent } from './child/child.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+  let spectator: Spectator<AppComponent>;
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    imports: [MockComponent(ChildComponent)]
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should create', () => {
+    expect(spectator.component).toBeTruthy();
   });
 
-  it(`should have as title 'signals-demo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('signals-demo');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('signals-demo app is running!');
+  it('should render labels and inputs', () => {
+    expect(spectator.fixture).toMatchSnapshot();
   });
 });
