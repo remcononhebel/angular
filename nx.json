@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultProject": "angular-monorepo",
+  "affected": {
+    "defaultBase": "master"
+  },
   "targetDefaults": {
     "build": {
       "cache": true,
