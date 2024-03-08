@@ -45,10 +45,6 @@ export class JoystickPocComponent {
     this.rightJoystickOutputData$.next(event);
   }
 
-  dezeWordtNietAangeroepen() {
-    console.log('Ik ben er niet');
-  }
-
   private mapToViewModel(data: nipplejs.JoystickOutputData): JoystickViewModel | null {
     return { direction: data.direction };
   }

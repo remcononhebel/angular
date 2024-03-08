@@ -7,7 +7,7 @@ describe('AppComponent', () => {
   let spectator: Spectator<AppComponent>;
   const createComponent = createComponentFactory({
     component: AppComponent,
-    imports: [MockComponent(ChildComponent)]
+    imports: [MockComponent(ChildComponent)],
   });
 
   beforeEach(() => (spectator = createComponent()));
@@ -18,5 +18,11 @@ describe('AppComponent', () => {
 
   it('should render labels and inputs', () => {
     expect(spectator.fixture).toMatchSnapshot();
+  });
+
+  it('should set firstname', () => {
+    spectator.component.setName('mockName');
+
+    expect(spectator.component.firstName()).toEqual('mockName');
   });
 });
