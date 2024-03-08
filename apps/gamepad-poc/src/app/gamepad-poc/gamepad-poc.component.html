@@ -1,0 +1,23 @@
+<div class="debug">
+  <div class="debug__joystick-info">
+    <h2>Left joystick</h2>
+    <pre>{{ left$ | async | json }}</pre>
+  </div>
+
+  <div class="debug__joystick-info">
+    <h2>Right joystick</h2>
+    <pre>{{ right$ | async | json }}</pre>
+  </div>
+</div>
+
+<div class="joysticks">
+  <app-joystick
+    [joystickId]="'leftJoystick'"
+    [options]="leftJoystickOptions"
+    (move)="onLeftJoystickMove($event)"></app-joystick>
+
+  <app-joystick
+    [joystickId]="'rightJoystick'"
+    [options]="rightJoystickManagerOptions"
+    (move)="onRightJoystickMove($event)"></app-joystick>
+</div>

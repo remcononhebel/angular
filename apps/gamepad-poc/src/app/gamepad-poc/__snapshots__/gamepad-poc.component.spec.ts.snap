@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JoystickPocComponent should have the correct input value for the child component 1`] = `
+<app-gamepad-poc
+  left$={[Function AnonymousSubject]}
+  leftJoystickOptions={[Function Object]}
+  leftJoystickOutputData$={[Function Subject]}
+  right$={[Function AnonymousSubject]}
+  rightJoystickManagerOptions={[Function Object]}
+  rightJoystickOutputData$={[Function Subject]}
+>
+  <div
+    class="debug"
+  >
+    <div
+      class="debug__joystick-info"
+    >
+      <h2>
+        Left joystick
+      </h2>
+      <pre>
+        null
+      </pre>
+    </div>
+    <div
+      class="debug__joystick-info"
+    >
+      <h2>
+        Right joystick
+      </h2>
+      <pre>
+        null
+      </pre>
+    </div>
+  </div><div
+    class="joysticks"
+  >
+    <app-joystick />
+    <app-joystick />
+  </div>
+</app-gamepad-poc>
+`;
+
+exports[`JoystickPocComponent should render two joysticks and two debug info divs 1`] = `
+<app-gamepad-poc
+  left$={[Function AnonymousSubject]}
+  leftJoystickOptions={[Function Object]}
+  leftJoystickOutputData$={[Function Subject]}
+  right$={[Function AnonymousSubject]}
+  rightJoystickManagerOptions={[Function Object]}
+  rightJoystickOutputData$={[Function Subject]}
+>
+  <div
+    class="debug"
+  >
+    <div
+      class="debug__joystick-info"
+    >
+      <h2>
+        Left joystick
+      </h2>
+      <pre>
+        null
+      </pre>
+    </div>
+    <div
+      class="debug__joystick-info"
+    >
+      <h2>
+        Right joystick
+      </h2>
+      <pre>
+        null
+      </pre>
+    </div>
+  </div><div
+    class="joysticks"
+  >
+    <app-joystick />
+    <app-joystick />
+  </div>
+</app-gamepad-poc>
+`;

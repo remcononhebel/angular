@@ -1,0 +1,19 @@
+.debug {
+  display: flex;
+  justify-content: space-between;
+
+  &__joystick-info {
+    background-color: #ddd;
+    border: 1px solid black;
+    padding: 8px;
+    width: 50%;
+  }
+}
+
+.joysticks {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
