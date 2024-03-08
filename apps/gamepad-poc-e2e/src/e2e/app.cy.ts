@@ -15,13 +15,15 @@ describe('gamepad-poc-e2e', () => {
     getDataCy('right-joystick');
   });
 
-  it('should show null in the joystick info box', () => {
+  it('should update left joystick debug information when joystick is moved', () => {
     getDataCy('left-joystick-info').should('contain.text', 'null');
+    cy.get('[data-cy="left-joystick"] .back').click(80, 80, { force: false });
+    getDataCy('left-joystick-info').should('not.contain.text', 'null');
   });
 
-  it('should move the left joystick', () => {
-    cy.get('[data-cy="left-joystick"] .front').trigger('mousedown');
-    cy.get('[data-cy="left-joystick"] .front').trigger('mousemove', { which: 1, pageX: 0, pageY: -100 });
-    cy.get('[data-cy="left-joystick"] .front').trigger('mouseup'); // End the drag by simulating mouse up  });
+  it('should update right joystick debug information when joystick is moved', () => {
+    getDataCy('right-joystick-info').should('contain.text', 'null');
+    cy.get('[data-cy="right-joystick"] .back').click(80, 80, { force: false });
+    getDataCy('right-joystick-info').should('not.contain.text', 'null');
   });
 });
