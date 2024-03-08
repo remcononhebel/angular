@@ -4,7 +4,7 @@
 
 ### Installation
 
-1. Make sure the correct node version is installed. This version can be found in [.nvmrc](./nvmrc). It is highly recommended to use Node Version Manager (nvm) if you use multiple node.js versions on your machine
+1. Make sure the correct node version is installed. This version can be found in [.nvmrc](./.nvmrc). It is highly recommended to use Node Version Manager (nvm) if you use multiple node.js versions on your machine
 
 ```shell
 $ nvm install <node version from .nvcmrc>
