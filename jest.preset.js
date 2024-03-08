@@ -3,6 +3,14 @@ const nxPreset = require('@nx/jest/preset').default;
 module.exports = {
   ...nxPreset,
   collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
   coverageReporters: ['html', 'text-summary', ['text', { skipFull: true }], 'lcov'],
   coveragePathIgnorePatterns: ['.jest-mock.ts'],
   restoreMocks: true,

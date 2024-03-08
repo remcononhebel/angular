@@ -18,12 +18,15 @@ exports[`JoystickPocComponent should have the correct input value for the child 
       <h2>
         Left joystick
       </h2>
-      <pre>
+      <pre
+        data-cy="left-joystick-info"
+      >
         null
       </pre>
     </div>
     <div
       class="debug__joystick-info"
+      data-cy="right-joystick-info"
     >
       <h2>
         Right joystick
@@ -35,8 +38,12 @@ exports[`JoystickPocComponent should have the correct input value for the child 
   </div><div
     class="joysticks"
   >
-    <app-joystick />
-    <app-joystick />
+    <app-joystick
+      data-cy="left-joystick"
+    />
+    <app-joystick
+      data-cy="right-joystick"
+    />
   </div>
 </app-gamepad-poc>
 `;
@@ -59,12 +66,15 @@ exports[`JoystickPocComponent should render two joysticks and two debug info div
       <h2>
         Left joystick
       </h2>
-      <pre>
+      <pre
+        data-cy="left-joystick-info"
+      >
         null
       </pre>
     </div>
     <div
       class="debug__joystick-info"
+      data-cy="right-joystick-info"
     >
       <h2>
         Right joystick
@@ -76,8 +86,12 @@ exports[`JoystickPocComponent should render two joysticks and two debug info div
   </div><div
     class="joysticks"
   >
-    <app-joystick />
-    <app-joystick />
+    <app-joystick
+      data-cy="left-joystick"
+    />
+    <app-joystick
+      data-cy="right-joystick"
+    />
   </div>
 </app-gamepad-poc>
 `;
