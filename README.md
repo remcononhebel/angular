@@ -72,7 +72,20 @@ When code is committed, the following pre-commit actions are done:
 
 1. All changed files are formatted using Prettier
 2. All changed code is linted
-3. Committizen is started to determine the commit message. Commitlint enforces a commit message according to Conventional Commits
+3. Committizen is started to determine the commit message. Commitlint enforces a commit message according to Conventional Commits. When Commitizen asks for a scope, this can be either the name of the app or lib, or one of the following:
+
+   1. `git` when changes were made to the git configuration
+   2. `all` when changes were made that affect all projects, e.g. README.md, nx.json, etc
+   3. `pipelines` when changes were made that affect the pipelines
+
+   ```shell
+    % git add . && git commit
+    → No staged files match any configured task.
+    cz-cli@4.3.0, cz-conventional-changelog@3.3.0
+
+    ? Select the type of change that you're committing: docs:     Documentation only changes
+    ? What is the scope of this change (e.g. component or file name): (press enter to skip) gamepad-poc
+   ```
 
 When code is pushed, the following pre-push actions are done
 
