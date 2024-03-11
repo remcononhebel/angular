@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { JoystickPocComponent } from './gamepad-poc/gamepad-poc.component';
+import { GamepadPocComponent } from './gamepad-poc/gamepad-poc.component';
 
 export interface JoystickViewModel {}
 
 @Component({
   standalone: true,
-  imports: [JoystickPocComponent],
+  imports: [GamepadPocComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

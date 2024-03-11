@@ -15,7 +15,7 @@ export interface JoystickViewModel {
   templateUrl: './gamepad-poc.component.html',
   styleUrl: './gamepad-poc.component.scss',
 })
-export class JoystickPocComponent {
+export class GamepadPocComponent {
   readonly leftJoystickOutputData$ = new Subject<nipplejs.JoystickOutputData>();
   readonly rightJoystickOutputData$ = new Subject<nipplejs.JoystickOutputData>();
 

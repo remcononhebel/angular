@@ -3,7 +3,7 @@ import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { MockComponent } from 'ng-mocks';
 import nipplejs from 'nipplejs';
 import { JoystickComponent } from '../joystick/joystick.component';
-import { JoystickPocComponent } from './gamepad-poc.component';
+import { GamepadPocComponent } from './gamepad-poc.component';
 
 const mockJoystickOutputData: nipplejs.JoystickOutputData = {
   direction: {
@@ -14,12 +14,12 @@ const mockJoystickOutputData: nipplejs.JoystickOutputData = {
 } as nipplejs.JoystickOutputData;
 
 describe('JoystickPocComponent', () => {
-  let spectator: Spectator<JoystickPocComponent>;
-  let component: JoystickPocComponent;
-  let fixture: ComponentFixture<JoystickPocComponent>;
+  let spectator: Spectator<GamepadPocComponent>;
+  let component: GamepadPocComponent;
+  let fixture: ComponentFixture<GamepadPocComponent>;
 
   const createComponent = createComponentFactory({
-    component: JoystickPocComponent,
+    component: GamepadPocComponent,
     imports: [MockComponent(JoystickComponent)],
   });
 
