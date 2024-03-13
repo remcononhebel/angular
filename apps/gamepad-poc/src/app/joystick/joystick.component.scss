@@ -1,0 +1,11 @@
+.joystick-container {
+  border: 1px solid black;
+  height: 200px;
+  position: relative;
+  width: 200px;
+  z-index: 1000;
+}
+
+.joystick {
+  height: 100%;
+}
