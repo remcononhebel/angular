@@ -6,6 +6,7 @@ import { CollectionState } from './collection.state';
 describe('CollectionSelectors', () => {
   const booksState: BooksState = {
     books: [...mockBooks],
+    error: null
   };
 
   const collectionStateNoBooks: CollectionState = {

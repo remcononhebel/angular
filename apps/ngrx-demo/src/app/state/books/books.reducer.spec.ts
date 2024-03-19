@@ -1,16 +1,24 @@
 import { mockBooks } from '../../mocks/book.mocks';
 import { BooksApiActions } from './books.actions';
-import { booksReducer } from './books.reducer';
+import { booksReducer, initialState } from './books.reducer';
 import { BooksState } from './books.state';
 
 describe('booksReducer', () => {
-  it('should handle BooksApiActions.retrievedBookList', () => {
-    const state: BooksState = {
-      books: [],
-    };
+  it('should handle BooksApiActions.loadBookListSuccessful', () => {
+    const state: BooksState = {...initialState};
 
     const books = [...mockBooks];
-    const action = BooksApiActions.retrievedBookList({ books });
+    const action = BooksApiActions.loadBookListSuccessful({ books });
+    expect(booksReducer(state, action)).toMatchSnapshot();
+  });
+
+  it('should handle BooksApiActions.loadBookListFailed', () => {
+    const state: BooksState = {
+      books: [],
+      error: null
+    };
+
+    const action = BooksApiActions.loadBookListFailed({ error: 'mock error' });
     expect(booksReducer(state, action)).toMatchSnapshot();
   });
 });

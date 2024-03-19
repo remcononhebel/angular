@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { first } from 'rxjs';
-import { Book } from './model/book.model';
-import { BooksApiService } from './service/books-api.service';
-import { BooksApiActions } from './state/books/books.actions';
+import { BooksPageActions } from './state/books/books.actions';
 import { selectAvailableBooks, selectNumberOfAvailableBooks } from './state/books/books.selectors';
 import { CollectionActions } from './state/collection/collection.actions';
 import { selectBookCollection, selectNumberOfBooksInCollection } from './state/collection/collection.selectors';
@@ -22,12 +20,10 @@ export class AppComponent implements OnInit {
   bookCollection$ = this.store.select(selectBookCollection);
   numberOfBooksInCollections$ = this.store.select(selectNumberOfBooksInCollection);
 
-  constructor(private readonly store: Store, private readonly booksApiService: BooksApiService) {}
+  constructor(private readonly store: Store) {}
 
   ngOnInit(): void {
-    this.booksApiService.getBooks().subscribe((books: Book[]) => {
-      this.store.dispatch(BooksApiActions.retrievedBookList({ books }));
-    });
+    this.store.dispatch(BooksPageActions.loadBookList());
   }
 
   onAdd(bookId: string) {

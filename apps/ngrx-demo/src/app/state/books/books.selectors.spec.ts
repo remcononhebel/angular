@@ -7,6 +7,7 @@ describe('BooksSelectors', () => {
     it('should return the books from the state', () => {
       const mockState: BooksState = {
         books: [...mockBooks],
+        error: null
       };
       expect(selectAvailableBooks.projector(mockState)).toMatchSnapshot();
     });
