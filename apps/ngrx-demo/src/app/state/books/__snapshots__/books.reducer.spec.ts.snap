@@ -1,6 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`booksReducer should handle BooksApiActions.retrievedBookList 1`] = `
+exports[`booksReducer should handle BooksApiActions.loadBookListFailed 1`] = `
+{
+  "books": [],
+  "error": "mock error",
+}
+`;
+
+exports[`booksReducer should handle BooksApiActions.loadBookListSuccessful 1`] = `
 {
   "books": [
     {
@@ -22,5 +29,6 @@ exports[`booksReducer should handle BooksApiActions.retrievedBookList 1`] = `
       },
     },
   ],
+  "error": null,
 }
 `;

@@ -4,7 +4,6 @@ exports[`AppComponent should match snapshot 1`] = `
 <ngrx-demo-root
   bookCollection$={[Function _Store]}
   books$={[Function _Store]}
-  booksApiService={[Function BooksApiServiceJestMock]}
   numberOfAvailableBooks$={[Function _Store]}
   numberOfBooksInCollections$={[Function _Store]}
   store={[Function _MockStore]}
@@ -55,7 +54,6 @@ exports[`AppComponent should match snapshot when selector returns books 1`] = `
 <ngrx-demo-root
   bookCollection$={[Function _Store]}
   books$={[Function _Store]}
-  booksApiService={[Function BooksApiServiceJestMock]}
   numberOfAvailableBooks$={[Function _Store]}
   numberOfBooksInCollections$={[Function _Store]}
   store={[Function _MockStore]}
